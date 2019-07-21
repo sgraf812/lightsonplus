@@ -207,8 +207,8 @@ delayScreensaver() {
     "mate-screensaver" )
             mate-screensaver-command --poke > /dev/null;;
     "xautolock" )
-        xautolock -disable
-        xautolock -enable;;
+        ${xautolock:=$(pgrep -a xautolock | awk '{print $2;}')} -disable
+        $xautolock -enable;;
     "xdofallback" )
         xdotool key shift
         ;;
